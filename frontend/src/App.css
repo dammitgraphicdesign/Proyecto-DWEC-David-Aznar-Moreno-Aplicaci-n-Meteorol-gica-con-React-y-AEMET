@@ -1,0 +1,412 @@
+/* 
+   VARIABLES CSS  PARA MODO OSCURO */
+:root {
+  /* Paleta de colores corporativos del logotipo de oscuro a claro */
+  --azul-oscuro: #12253b;     
+  --azul-medio: #59859f;    
+  --azul-claro: #83a7bc;      
+  --azul-muy-claro: #d0e0ef;  
+  
+  /*colores base del tema */
+  --fondo: #0b1220;          
+  --texto: #e4ecff;           
+  --texto-secundario: var(--azul-claro);
+  --blanco: #ffffff;      
+  
+  /*colores funcionales del modo oscuro */
+  --color-primario: var(--azul-medio);   
+  --color-secundario: var(--azul-claro);    
+  --color-borde: var(--azul-medio);    
+  
+  /* fondos con transparencia */
+  --fondo-panel-suave: rgba(255, 255, 255, 0.06);  
+  --fondo-panel-medio: rgba(0, 0, 0, 0.18);      
+  --fondo-panel-fuerte: rgba(0, 0, 0, 0.25);  
+  
+  /*efectos visuales */
+  --sombra-hover: rgba(131, 167, 188, 0.6); 
+  
+  /* mensajes de error */
+  --color-error: rgba(255, 120, 120, 0.55);
+  --fondo-error: rgba(255, 120, 120, 0.12);
+}
+
+/* VARIABLES CSS - MODO CLARO*/
+.modo-claro {
+  /*colorese del tema claro */
+  --fondo: var(--azul-muy-claro); 
+  --texto: var(--azul-oscuro);  
+  --texto-secundario: var(--azul-medio); 
+  
+  /* colores funcionales modo claro */
+  --color-primario: var(--azul-oscuro);   
+  --color-secundario: var(--azul-medio);    
+  --color-borde: var(--azul-oscuro);     
+  
+  /*fondos con transparencia */
+  --fondo-panel-suave: rgba(131, 167, 188, 0.2);   
+  --fondo-panel-medio: rgba(131, 167, 188, 0.6);   
+  --fondo-panel-fuerte: rgba(208, 224, 239, 0.6); 
+  
+  /* efectos visuales */
+  --sombra-hover: rgba(17, 24, 39, 0.6); /
+}
+
+/*BASE Y RESET */
+* { 
+  box-sizing: border-box; 
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+#root {
+  width: 100%;
+}
+
+/*
+   FONDO DINAMICO MODO OSCURO */
+.modo-oscuro {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/*
+   FONDO DINAMICO MODO CLARO */
+.modo-claro {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+/*CONTENEDOR PRINCIPAL */
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px;
+  border-radius: 18px;
+  
+  /*modo oscuro */
+  background: rgba(17, 24, 39, 0.75);
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}
+
+.modo-claro .contenedor {
+  background: rgba(131, 167, 188, 0.25);
+  border: 1px solid var(--color-borde);
+  box-shadow: 0 18px 50px rgba(18, 37, 59, 0.15);
+}
+
+/*CABECERA*/
+.cabecera {
+  padding: 14px;
+  text-align: center;
+  position: relative;
+}
+.cabecera-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 840px;
+  height: 230px;
+  object-fit: contain;
+}
+.cabecera-texto {
+  text-align: center;
+}
+
+.cabecera h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.55rem;
+  letter-spacing: 0.2px;
+}
+.cabecera p {
+  margin: 0;
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* BOTN TOGGLE MODO OSCURO Y CLARO */
+.boton-modo {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /*modo claro*/
+  background: var(--azul-oscuro);
+  border: 2px solid var(--azul-oscuro);
+}
+
+.modo-oscuro .boton-modo {
+  /*modo oscuro*/
+  background: var(--azul-claro);
+  border: 2px solid var(--azul-claro);
+}
+
+.boton-modo:hover {
+  transform: scale(1.1) rotate(20deg);
+  
+  /* modo claro */
+  background: var(--azul-claro);
+  border-color: var(--azul-oscuro);
+}
+.modo-oscuro .boton-modo:hover {
+  /*modo oscuro*/
+  background: var(--azul-oscuro);
+  border-color: var(--azul-claro);
+}
+
+/*FORMULARIO*/
+.formulario {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  display: grid;
+  gap: 10px;
+  
+  /*modo oscuro*/
+  background: var(--fondo-panel-suave);
+  border: 1px solid var(--color-borde);
+}
+.modo-claro .formulario {
+  background: var(--fondo-panel-suave);
+  border: 1px solid var(--color-borde);
+}
+
+/*grid para los  selectores */
+.selectores-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.formulario label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+/* ============================================
+   SELECTORES (Desplegables)
+   ============================================ */
+.formulario select {
+  padding: 12px;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  color: var(--texto);
+  
+  /* Modo oscuro */
+  background: var(--fondo-panel-fuerte);
+  border: 1px solid var(--color-borde);
+}
+
+.modo-claro .formulario select {
+  background: var(--azul-claro);
+  border: 1px solid var(--color-borde);
+}
+
+/* Opciones del desplegable */
+.formulario select option {
+  padding: 10px;
+  color: var(--texto);
+  
+  /* Modo oscuro */
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.modo-claro .formulario select option {
+  background: var(--azul-claro);
+}
+
+.formulario select option:hover {
+  background: var(--color-primario);
+}
+.modo-claro .formulario select option:hover {
+  background: var(--azul-claro);
+}
+
+/*estados del selector */
+.formulario select:hover:not(:disabled) {
+  border-color: var(--color-primario);
+}
+.formulario select:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+.formulario select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*BOTON SUBMIT*/
+.formulario button[type="submit"] {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--blanco);
+  background: var(--color-primario);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.formulario button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: var(--color-secundario);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.formulario button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/*TABS*/
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tab {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  /*modo oscuro */
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-secundario);
+  color: var(--color-secundario);
+}
+.modo-claro .tab {
+  background: transparent;
+  border: 1px solid var(--color-primario);
+  color: var(--color-primario);
+}
+.tab:hover:not(:disabled) {
+  background: var(--color-secundario);
+  color: var(--blanco);
+  border-color: var(--color-secundario);
+}
+.tab.activo {
+  background: var(--color-primario);
+  color: var(--blanco);
+  border-color: transparent;
+}
+.tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/*MENSAJES*/
+.mensaje {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  /*modo oscuro*/
+  background: var(--fondo-panel-suave);
+  border: 1px solid var(--color-borde);
+}
+.modo-claro .mensaje {
+  background: transparent;
+  border: 1px solid var(--color-primario);
+}
+.mensaje.error {
+  border-color: var(--color-error);
+  background: var(--fondo-error);
+}
+
+/*RESULTADOS*/
+.resultado {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  /*modo oscuro*/
+  background: var(--fondo-panel-suave);
+  border: 1px solid var(--color-secundario);
+}
+.modo-claro .resultado {
+  background: var(--fondo-panel-suave);
+  border: 1px solid var(--color-borde);
+}
+
+.resultado h2 {
+  margin: 0 0 10px 0;
+}
+
+/*TARJETAS */
+.tarjeta {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  /*modo oscuro*/
+  background: var(--fondo-panel-medio);
+  border: 1px solid var(--color-borde);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.modo-claro .tarjeta {
+  background: var(--fondo-panel-medio);
+  border: 1px solid var(--color-borde);
+}
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px var(--sombra-hover);
+}
+
+.modo-claro .tarjeta:hover {
+  box-shadow: 0 4px 12px var(--sombra-hover);
+}
+
+
+/* RESPONSIVE MOVIL*/
+@media (max-width: 600px) {
+  .logo {
+    width: 640px;
+    height: 180px;
+  }
+  .cabecera h1 {
+    font-size: 1.3rem;
+  }
+  
+  .cabecera p {
+    font-size: 0.9rem;
+  }
+  
+  .selectores-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contenedor {
+    padding: 14px;
+    border-radius: 16px;
+  }
+}
